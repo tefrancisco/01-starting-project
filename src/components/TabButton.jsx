@@ -1,12 +1,10 @@
-export default function TapButton(props) {
-
-    function handleClick() {
-        console.log('Hello World!')
-    }
+export default function TapButton({children, onSelect, isSelected}) {
 
     return (
         <li>
-            <button onClick={handleClick}>{props.children}</button>
+            {/* here the action onClick will execute the function passed by
+            the onSelect prop that we receive here */}
+            <button className={isSelected ? 'active' : undefined} onClick={onSelect}>{children}</button>
         </li>
     )
 }
