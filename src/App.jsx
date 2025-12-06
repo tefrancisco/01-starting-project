@@ -2,11 +2,10 @@
 // or other hooks
 // We import Fragment to use it as a root element for sibling elements withou needing to create unecessary HTML elements in our code.
 import { useState, Fragment } from 'react'
-import { CORE_CONCEPTS } from './data.js'
 import { EXAMPLES } from './data.js'
 import Header from './components/Header/Header.jsx'
-import CoreConcept from './components/CoreConcept.jsx'
 import TabButton from './components/TabButton.jsx'
+import CoreConcepts from './components/CoreConcepts.jsx'
 
 function App() {
 
@@ -34,21 +33,11 @@ function App() {
   }
 
   return (
-    <Fragment>
+    <>
       <Header />
       <main>
-        <section id="core-concepts">
-          <ul>
-            {/* Aqui utilizamos o map para criar um array baseado no array CORE_CONCEPTS.
-            Nesse novo array, para cada 'conceptItem', teremos um component CoreConcept com seus dados.
-            Basicamente, transformados nosso dados em código JSX.
-            */}
-            {CORE_CONCEPTS.map((conceptItem) =>
-              // Precisamos do 'key' pois o React requere um identificador único para cada item.
-              <CoreConcept key={conceptItem.title} {...conceptItem} />
-            )}
-          </ul>
-        </section>
+
+      <CoreConcepts/>
 
         <section id="examples">
           <h2>Examples</h2>
@@ -63,7 +52,7 @@ function App() {
           {tabContent}
         </section>
       </main>
-    </Fragment>
+    </>
   );
   
 }
